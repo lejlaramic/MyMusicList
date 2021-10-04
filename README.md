@@ -1,6 +1,6 @@
 # MyMusicList
 
-This project was generated with Angular CLI version 11.0.3 for frontend and .NET Core version 3.1.3 for backend.
+This project was generated with Angular CLI version 11.0.3 for frontend and .NET Core version 3.1.3 for backend. Database is PostgreSQL.
 
 # Development server
 Run ng serve for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
