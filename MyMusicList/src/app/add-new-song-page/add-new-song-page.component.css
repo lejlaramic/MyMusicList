@@ -1,0 +1,16 @@
+button{
+    width: 20%; 
+    margin:3%;
+    background-color:#CED3DC;
+    border:1px solid rgba(0, 0, 0, 0.4);
+  }
+button:hover{
+    background-color:#ABA9C3;
+}
+mat-card{
+  border:5px solid rgb(31, 64, 107);
+
+}
+mat-radio-button{
+  margin-left: 5px;
+}

@@ -1,0 +1,30 @@
+<div class="full-screen">  
+    <app-header (openMenu)="openSideMenu()"></app-header>
+    <div fxFlex flex-direction="row" fxLayoutGap="20px" class="top">
+      <div fxFlex.xs="30" fxFlex.gt-md="15" fxFlex.md="20" fxFlex.sm="30" class="nav" *ngIf="openMenu">
+        <mat-nav-list fxFlex="100" fxLayoutGap="15px" fxLayout="column" >  
+          <a  class="flyout-navbar-menu-item" [routerLink]="'/Home/Card'" fxLayoutGap="15px" fxLayout="row" >
+            <span class="whiteSpace" ><mat-icon>headset</mat-icon> Your music list </span>
+           </a> 
+          <a  class="flyout-navbar-menu-item" [routerLink]="'/Home/Search'" fxLayoutGap="15px" fxLayout="row" >
+           <span class="whiteSpace" > <mat-icon>search</mat-icon> Search your music</span>
+          </a>  
+          <a  class="flyout-navbar-menu-item" [routerLink]="'/Home/AddNew'" fxLayoutGap="15px" fxLayout="row" >
+            <span class="whiteSpace"> <mat-icon>add</mat-icon> Add a new song</span>
+          </a> 
+          <div class="border"></div>
+          <div class="flyout-navbar-menu-item"  fxLayoutGap="15px" fxLayout="row" >
+            <span class="whiteSpace"> <div class="image">
+              <img src='../../assets/img/musicPlate.jpg' alt='image'>
+            </div></span>
+          </div>
+          
+          
+        </mat-nav-list>
+      </div>
+      <div fxFlex class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  

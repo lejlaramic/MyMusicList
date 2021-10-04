@@ -1,0 +1,63 @@
+.podvuci{
+    border-bottom:1px solid rgba(0, 0, 0, 0.4);
+    font-size: x-large;
+    height:60px;
+}
+.podvuci2{
+    border-bottom:1px solid rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
+
+
+}
+mat-card{
+    min-height:450px;
+}
+mat-card-subtitle{
+    font-size: medium;
+    height:30px;
+
+}
+mat-card{
+    border:5px solid rgb(31, 64, 107);
+    width:70%;
+}
+.pozadina{
+    width: 100%;
+}
+.div{
+    width:50%;
+}
+.div2{
+    width:30%;
+}
+.div3{
+    width:70%;
+}
+p{
+    height: 35px;
+    padding-left: 20%;
+}
+.divH{
+    height:60px;
+}
+.btn{
+    width: 20%; 
+    margin:3%;
+    background-color:#CED3DC;
+    overflow-x: auto;
+    border:1px solid rgba(0, 0, 0, 0.4);
+  }
+
+.btn:hover{
+    background-color:#ABA9C3;
+}
+input{
+    overflow:auto;
+}
+
+mat-radio-button{
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}

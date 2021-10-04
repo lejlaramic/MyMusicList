@@ -1,0 +1,94 @@
+<div class="pozadina" fxLayoutAlign="center center">
+    <mat-card  fxFlex style="margin: 50px;">
+      <mat-card-title class="podvuci"><b>Edit song</b></mat-card-title>
+     
+      <mat-card-subtitle>Song was added to your list on date: {{date }} </mat-card-subtitle>
+      <mat-card-subtitle>Last edited on date: {{dateEdit}} </mat-card-subtitle>
+  
+      <mat-card-content>
+        <form [formGroup]="formGroup" fxLayout="column" >
+            <div fxLayout="row" fxLayoutGap="15px">
+            <div class="div" fxLayout="column">
+            <div fxLayout="row" fxLayoutGap="15px">
+            <div class="div2" fxLayout="column">
+            <p><b>Name of song: </b> </p>
+            <p><b>Name of singer: </b></p>
+            <p><b>Url of song: </b></p>
+            </div>
+            <div class="div3" fxLayout="column">
+            <mat-form-field>            
+            <input #testInput matInput formControlName="nameOfSong" [readonly]="isReadOnly" (change)="changeFn($event)">
+            </mat-form-field>
+            <mat-form-field>
+            <input #testInput matInput formControlName="nameOfSinger" [readonly]="isReadOnly" (change)="changeFn2($event)">
+            </mat-form-field>
+            <div *ngIf="show" class="divH" fxLayoutAlign="left center"> <a href="{{src}}" (change)="changeFn3($event)">Song Link</a></div>
+            <mat-form-field *ngIf="!show">  
+            <input class="url" #testInput matInput formControlName="url" [readonly]="isReadOnly">
+            </mat-form-field>
+            </div>
+        </div>
+      
+        </div>
+        <div class="div" fxLayout="column">
+          <div fxLayout="row" fxLayoutGap="15px">
+            <div class="div2" fxLayout="column">
+            <p><b>Favorite song: </b></p>
+            <p><b>Song rating: </b></p>
+            <p><b>Category: </b></p>
+
+            </div>
+            <div class="div3" fxLayout="column">
+            <div class="podvuci2" *ngIf="!show">
+                <mat-radio-group name="radioOpt1" [(ngModel)]="selectedRadio" [ngModelOptions]="{standalone: true}" (change)="radioChange($event)">
+                    <mat-radio-button [value]= "true" name="Yes">Yes </mat-radio-button> 
+                    <mat-radio-button [value]= "false" name="No">No</mat-radio-button>
+            </mat-radio-group>
+            </div>
+            <mat-form-field *ngIf="show">
+            <input #testInput matInput formControlName="favorite" [readonly]="isReadOnly">
+            </mat-form-field>
+            <mat-form-field *ngIf="show">
+              <input #testInput matInput formControlName="songRating" [readonly]="isReadOnly">
+              </mat-form-field>
+                <mat-form-field *ngIf="!show" appearance="fill">
+                  <mat-label>Rate song</mat-label>
+                  <mat-select [(ngModel)]="selectedValue"  [ngModelOptions]="{standalone: true}" (selectionChange)="selectChange($event)">
+                    <mat-option *ngFor="let grade of grades" [value]="grade.viewValue">
+                      {{grade.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              
+            <mat-form-field *ngIf="show">
+              <input #testInput matInput formControlName="category" [readonly]="isReadOnly">
+            </mat-form-field>
+            <mat-form-field  *ngIf="!show"appearance="fill">
+              <mat-label>Category</mat-label>
+              <mat-select [(ngModel)]="selectedCategory"  [ngModelOptions]="{standalone: true}" (selectionChange)="selectChange2($event)" >
+                <mat-option *ngFor="let category of categories" [value]="category.songCategory">
+                {{category.songCategory}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>          
+            </div>
+          </div>
+        </div>
+        </div>
+        <div fxLayout="column" fxLayoutGap="15px" fxLayoutAlign="left left"  *ngIf="showErr" class="alert alert-danger" role="alert">
+          <p style="color:red">{{errorMessage}}</p>
+        </div> 
+        <div fxLayout="column" fxLayoutGap="15px">
+            <mat-card-actions fxLayoutAlign="end center">
+              <button mat-button class="btn" (click)="editFields()">            
+                <b> Click here to edit fields</b> <mat-icon fxFlex >edit</mat-icon>
+            </button>
+            <button mat-button class="btn" (click)="editSong(formGroup.value)"><b>Save changes</b></button>
+
+            </mat-card-actions>
+          </div>  
+        </form>
+      </mat-card-content>
+      
+    </mat-card>    
+  </div>

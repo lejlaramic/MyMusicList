@@ -1,0 +1,23 @@
+<div fxLayoutAlign="center center">
+    <mat-card class="karta" fxFlex style="margin: 50px;">
+      <mat-card-title>Search your list</mat-card-title>
+      <mat-card-content>
+        <form fxLayoutAlign="center center"> 
+            <mat-form-field class="searchPart" >
+              <div class="search">
+                <mat-label>Search songs: </mat-label>
+                <input matInput placeholder="Ex. By title, singer, category, rating..." type="text" [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}" (keydown.enter)="search()">
+              </div>
+                <div class="sporedni" fxLayoutAlign="end center">
+                <button mat-button (click)="search()" ><mat-icon>search</mat-icon>Search</button>
+              </div>
+               
+            </mat-form-field>           
+        </form>   
+      </mat-card-content>
+    </mat-card>
+  </div>
+<app-card-page [songs]="songs"></app-card-page>
+      
+   
+  

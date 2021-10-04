@@ -1,0 +1,60 @@
+<div fxLayoutAlign="center center">
+    <mat-card fxFlex style="margin: 70px;">
+      <mat-card-title>Add a new song</mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="form" fxLayout="column">
+          <div fxLayout="row" fxLayoutGap="15px">
+  
+            <div fxLayout="column" fxFlex>
+              <mat-form-field>
+                <input matInput formControlName="nameOfSong" placeholder="Name of song" required>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput formControlName="nameOfSinger" placeholder="Name of singer" required>
+              </mat-form-field>
+             
+              <mat-form-field>
+                <input matInput formControlName="url" placeholder="Song url" required>
+              </mat-form-field> 
+              <mat-form-field appearance="fill">
+                <mat-label>Category</mat-label>
+                <mat-select [(ngModel)]="selectedCategory"  [ngModelOptions]="{standalone: true}" required>
+                  <mat-option *ngFor="let category of categories" [value]="category">
+                  {{category.songCategory}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div fxFlex fxLayout="column">
+                <mat-form-field appearance="fill">
+                    <mat-label>Rate song</mat-label>
+                    <mat-select [(ngModel)]="selectedValue"  [ngModelOptions]="{standalone: true}" required>
+                      <mat-option *ngFor="let grade of grades" [value]="grade.viewValue">
+                        {{grade.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                    
+              <mat-form-field> 
+                <input matInput type="date" formControlName="enterDate" placeholder="Date song was added to your list" required>
+            </mat-form-field> 
+            <label>Favorite:</label><br>
+                <mat-radio-group name="radioOpt1" [(ngModel)]="selectedRadio" [ngModelOptions]="{standalone: true}" (change)="radioChange($event)">
+                    <mat-radio-button [value]= "true" name="Yes">Yes </mat-radio-button> 
+                    <mat-radio-button [value]= "false" name="No">No</mat-radio-button>
+            </mat-radio-group>
+            </div> 
+          </div> 
+          <div *ngIf="show" class="alert alert-danger" role="alert">
+            <p style="color:red">{{errorMessage}}</p>
+          </div> 
+          <div fxLayout="column" fxLayoutGap="15px">
+            <mat-card-actions fxLayoutAlign="end center">
+              <button mat-button (click)="addSong(form.value)"><b>Add song</b></button>
+            </mat-card-actions>
+          </div>           
+        </form>   
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
